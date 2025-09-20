@@ -1,0 +1,282 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background: #fdfcfb;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  background: #2a4c75;
+  color: #fefefe;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 22px;
+  color: #c8a54d;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fefefe;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #817a9d;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  height: 85vh;
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(11, 37, 69, 0.55); /* dark overlay */
+}
+
+.hero-text {
+  position: relative;
+  color: #fefefe;
+  text-align: center;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.btn {
+  background: #c2b2ee;
+  color: #0b2545;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #c2c0ba;
+}
+
+/* Intro Section */
+.intro {
+  padding: 50px 20px;
+  text-align: center;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Featured Destinations */
+.featured {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/*.card {
+  background: #fefefe;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 220px; /* bigger images */
+  object-fit: cover;
+/*}/*
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  margin: 15px 0 10px;
+  color: #0b2545;
+}
+
+.card p {
+  padding: 0 15px 20px;
+  font-size: 0.95rem;
+}*/
+
+.card {
+  perspective: 1000px; /* enables 3D effect */
+  cursor: pointer;
+}
+/*.card-inner {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}*/
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 320px; /* taller to fit image + title */
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/*.card-front {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}*/
+
+.card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.card-front h3 {
+  margin: 10px;
+  font-size: 1.2rem;
+  color: #0b2545;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop instead of stretch */
+  border-radius: 12px 12px 0 0; /* round only the top corners */
+}
+
+
+.card-front h3 {
+  margin: 10px;
+  color: #0b2545;
+}
+
+.card-back {
+  background: #0b2545;
+  color: #fefefe;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+}
+
+
+
+/* Footer */
+footer {
+  background: #0b2545;
+  color: #fefefe;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #13315c;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
